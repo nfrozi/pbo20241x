@@ -3,10 +3,20 @@
 public class Main {
     public static void main(String[] args) {
 
-        System.out.printf("Hello and welcome!");
+        Produk tehJavana = new Produk(
+            "Javana Teh Melati 350",
+            3000,
+            "PT Sayap Mas"
+        );
 
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("i = " + i);
-        }
+        Voucer vJvn = new Voucer(
+            "VC Javanatehmlti",
+            tehJavana,
+            2200
+        );
+
+        System.out.println(vJvn.nama + "/" +
+                tehJavana.produsen + "\t" +
+                vJvn.nominal);
     }
 }
