@@ -9,14 +9,17 @@ public class Main {
             "PT Sayap Mas"
         );
 
-        Voucer vJvn = new Voucer(
-            "VC Javanatehmlti",
-            tehJavana,
-            2200
-        );
+        System.out.println(tehJavana.getHarga());
 
-        System.out.println(vJvn.nama + "/" +
-                tehJavana.produsen + "\t" +
-                vJvn.nominal);
+
+//        Voucer vJvn = new Voucer(
+//            "VC Javanatehmlti",
+//            tehJavana,
+//            2200
+//        );
+
+//        System.out.println(vJvn.nama + "/" +
+//                tehJavana.produsen + "\t" +
+//                vJvn.nominal);
     }
 }
