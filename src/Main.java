@@ -2,14 +2,26 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        Produk validTehJavana = new Produk(
+                "Teh Javana 350",
+                3000,
+                "PT Sayap Mas"
+        );
 
-        Produk tehJavana = new Produk(
-            "Javana Teh Melati 350",
-            3000,
+        System.out.println("Menampilkan objek produk yang valid:");
+        System.out.println(validTehJavana.getNama() + " / " +
+                validTehJavana.getHarga() + "\n");
+
+        Produk invalidTehJavana = new Produk(
+            "",
+            0,
             "PT Sayap Mas"
         );
 
-        System.out.println(tehJavana.getHarga());
+        System.out.println("Menampilkan objek produk yang tidak valid?");
+        System.out.println(invalidTehJavana.getNama() + " / " +
+            invalidTehJavana.getHarga());
+
 
 
 //        Voucer vJvn = new Voucer(
@@ -17,9 +29,5 @@ public class Main {
 //            tehJavana,
 //            2200
 //        );
-
-//        System.out.println(vJvn.nama + "/" +
-//                tehJavana.produsen + "\t" +
-//                vJvn.nominal);
     }
 }
