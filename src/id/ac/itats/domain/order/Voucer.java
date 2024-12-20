@@ -1,4 +1,6 @@
-import java.util.Date;
+package id.ac.itats.domain.order;
+
+import id.ac.itats.domain.core.Produk;
 
 public class Voucer {
 

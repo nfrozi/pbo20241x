@@ -1,3 +1,5 @@
+package id.ac.itats.domain.core;
+
 public class Pembeli {
 
     private String nama;
@@ -15,6 +17,12 @@ public class Pembeli {
     }
 
     public boolean isMember() {
-        return false;
+//        return false;
+
+        if (this instanceof PembeliMember) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

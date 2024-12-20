@@ -1,3 +1,5 @@
+package id.ac.itats.domain.core;
+
 public class PembeliMember extends Pembeli {
 
     private String kota;
@@ -11,7 +13,7 @@ public class PembeliMember extends Pembeli {
         return kota;
     }
 
-    public boolean isMember() {
-        return true;
-    }
+//    public boolean isMember() {
+//        return true;
+//    }
 }

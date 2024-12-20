@@ -1,3 +1,5 @@
+package id.ac.itats.domain.core;
+
 public class Produk {
 
     // Property bantuan (helper)
