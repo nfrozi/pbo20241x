@@ -12,12 +12,9 @@ public class Produk {
 
     public Produk(String nama, int harga, String produsen) {
         validation = new ProdukValidation(nama, harga);
-        if ( ! validation.isValid()) {
-            System.err.println(validation.getErrorMessage());
-            System.exit(1);
-        }
+        validation.validate();
 
-        // Jalankan hanya ketika validasi sukses (valid=true)
+        // Instansiasi tidak akan berjalan ketika validasi gagal
         this.nama = nama;
         this.harga = harga;
         this.produsen = produsen;

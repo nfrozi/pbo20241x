@@ -1,54 +1,65 @@
 package id.ac.itats.ui;
 
-import id.ac.itats.domain.core.Pembeli;
-import id.ac.itats.domain.core.PembeliMember;
-import id.ac.itats.domain.core.Produk;
-import id.ac.itats.domain.core.ProdukDigital;
+import id.ac.itats.domain.core.*;
 import id.ac.itats.domain.order.ResiKasir;
 
-import java.util.AbstractSequentialList;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.security.InvalidParameterException;
+import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class App {
 
+    private Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Produk validTehJavana = new Produk(
-                "Teh Javana 350",
-                3000,
-                "PT Sayap Mas"
-        );
+        App app = new App();
+        Produk tehJavana;
 
-        Pembeli yahya = new Pembeli();
-        PembeliMember bayu = new PembeliMember(
-            "Bayu",
-            "Surabaya"
-        );
+//        File file = new File("/home/nfrozi/P");
+//        file.getCanonicalPath();
 
-        List<Pembeli> listPembeli = new ArrayList<>();
-        listPembeli.add(yahya);
-        listPembeli.add(bayu);
+        try {
+            tehJavana = app.inputProduk();
+            app.displayProduk(tehJavana);
 
-        System.out.println(yahya.isMember());
-        System.out.println(bayu.isMember());
+        } catch (EntriProdukException ex) {
+            System.err.println(ex.getMessage() +
+                    " Silakan entri ulang!");
 
-        Produk digital = new ProdukDigital("Voucer Google Play", 50000, "Google");
-        ResiKasir resi = new ResiKasir(bayu);
-        resi.tambahProduk(validTehJavana);
-        resi.tambahProduk(digital);
-        resi.cetakListProduk();
+            tehJavana = app.inputProduk();
+            app.displayProduk(tehJavana);
+        }
 
-        List<Produk> listProduk = new LinkedList<>();
-        listProduk.add(validTehJavana);
-        listProduk.add(digital);
-
-        resi.tambahSemuaProduk(listProduk);
-        resi.cetakListProduk();
-
-        System.out.println(resi.getPembeli());
+//        Pembeli yahya = new Pembeli();
+//        PembeliMember bayu = new PembeliMember(
+//            "Bayu",
+//            "Surabaya"
+//        );
+//
+//        List<Pembeli> listPembeli = new ArrayList<>();
+//        listPembeli.add(yahya);
+//        listPembeli.add(bayu);
+//
+//        System.out.println(yahya.isMember());
+//        System.out.println(bayu.isMember());
+//
+//        Produk digital = new ProdukDigital("Voucer Google Play", 50000, "Google");
+//        ResiKasir resi = new ResiKasir(bayu);
+//        resi.tambahProduk(validTehJavana);
+//        resi.tambahProduk(digital);
+//        resi.cetakListProduk();
+//
+//        List<Produk> listProduk = new LinkedList<>();
+//        listProduk.add(validTehJavana);
+//        listProduk.add(digital);
+//
+//        resi.tambahSemuaProduk(listProduk);
+//        resi.cetakListProduk();
+//
+//        System.out.println(resi.getPembeli());
 
 
 
@@ -98,5 +109,21 @@ public class App {
 //        } else {
 //            System.out.println(budi.getNama() + " tidak dapat diskon.");
 //        }
+    }
+
+    public Produk inputProduk() {
+        System.out.print("Nama: ");
+        String nama = scanner.nextLine();
+        System.out.print("Harga: ");
+        int harga = Integer.parseInt(scanner.nextLine());
+        System.out.print("Produsen: ");
+        String produsen = scanner.nextLine();
+
+        return new Produk(nama, harga, produsen);
+    }
+
+    public void displayProduk(Produk produk) {
+        System.out.println(produk.getNama() +
+                " Rp" + produk.getHarga());
     }
 }

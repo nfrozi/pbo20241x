@@ -1,5 +1,8 @@
 package id.ac.itats.domain.core;
 
+import java.io.IOException;
+import java.security.InvalidParameterException;
+
 public class ProdukValidation {
 
     private String objectIdentifier;
@@ -35,6 +38,16 @@ public class ProdukValidation {
         }
 
         return valid;
+    }
+
+    public void validate() {
+        if (nama.equals("")) {
+            throw new EntriProdukException("Nama harus diisi");
+        }
+
+        if (harga < 500) {
+            throw new EntriProdukException("Harga harus > Rp500");
+        }
     }
 
     private void addErrorMessage(String property, String message) {
